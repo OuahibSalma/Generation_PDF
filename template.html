@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <img src="{{ image_path }}" alt="Logo" width="200" height="100">
+        Compte Rendu d'Évaluation - Agent de Télévente
+    </div>
+
+    <div>
+        <h2>INFORMATIONS GÉNÉRALES</h2>
+        <p>Agent : {{ agent_name }}</p>
+        <p>Offre Proposée au Client : {{ offre_proposee }}</p>
+        <p>Résultat de la Vente : {{ resultat_vente }}</p>
+    </div>
+    
+    <div class="container">
+        <div class="column">
+            <h2>CRITÈRES D'ÉVALUATION</h2>
+            <table class="criteria-table">
+                <thead>
+                    <tr>
+                        <th>Critères</th>
+                        <th>Évaluation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for criterion, evaluation in valid_criteria %}
+                    <tr>
+                        <td>{{ criterion }}</td>
+                        <td class="{{ 'positive' if evaluation == 'OK' else 'negative' }}">{{ evaluation }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="column" id="info"> 
+            <h2 class="positive">POINTS FORTS</h2>
+            <ul>
+                {% for point in points_positifs %}
+                {% if point.strip() %}
+                <li>{{ point }}</li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        
+            <h2 class="negative" >POINTS FAIBLES</h2>
+            <ul>
+                {% for point in points_negatifs %}
+                {% if point.strip() %}
+                <li>{{ point }}</li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+
+            <h2 class="conclusion">CONCLUSION</h2>
+            <p>{{ resume_agent }}</p>
+        </div>
+    </div>
+</body>
+</html>

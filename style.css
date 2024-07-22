@@ -1,0 +1,59 @@
+@page {
+    size: A4;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+.header {
+    text-align: right;
+    color: lightgray;
+    font-style: italic;
+    font-size: 10px;
+}
+.section-title {
+    font-weight: bold;
+    font-size: 12px;
+} 
+th { 
+    background-color: rgb(37, 64, 123);
+}
+.positive {
+    color: green;
+}
+.negative {
+    color: red;
+}
+.criteria-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.criteria-table th, .criteria-table td {
+    border: 1px solid black;
+    padding: 5px;
+}
+.criteria-table th {
+    font-weight: bold;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+}
+.column {
+    flex: 1;
+    padding: 10px;
+}
+
+#info { 
+    margin-top: auto;
+
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
